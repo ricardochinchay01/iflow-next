@@ -6,7 +6,8 @@ import { useRouter } from 'next/router'
 export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
     const router = useRouter()
 
-    const { data: user, error, mutate } = useSWR('/api/user', () =>
+    //  obtengo la información del usuario autenticado desde la ruta /api/user de la API
+    const { data: userData, error, mutate } = useSWR('/api/user', () =>
         axios
             .get('/api/user')
             .then(res => res.data)
@@ -16,6 +17,9 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
                 router.push('/verify-email')
             }),
     )
+
+    const user = userData?.user; // Extrae el usuario de userData
+    const permissions = userData?.permissions || []; // Extrae los permisos de userData, por defecto será un array vacío si no hay permisos
 
     const csrf = () => axios.get('/sanctum/csrf-cookie')
 
@@ -111,6 +115,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
 
     return {
         user,
+        permissions,
         register,
         login,
         forgotPassword,

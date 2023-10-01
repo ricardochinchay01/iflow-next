@@ -10,7 +10,7 @@ import { useAuth } from '@/hooks/auth'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 
-const Navigation = ({ user }) => {
+const Navigation = ({ user, permissions }) => {
     const router = useRouter()
 
     const { logout } = useAuth()
@@ -37,6 +37,15 @@ const Navigation = ({ user }) => {
                                 active={router.pathname === '/dashboard'}>
                                 Dashboard
                             </NavLink>
+                        </div>
+                        <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            {permissions.includes('NewSan-ver_notificaciones') && (
+                                <NavLink
+                                    href="/newsan"
+                                    active={router.pathname === '/newsan'}>
+                                    New San
+                                </NavLink>
+                            )}
                         </div>
                     </div>
 
