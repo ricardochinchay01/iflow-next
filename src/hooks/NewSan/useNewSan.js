@@ -15,11 +15,14 @@ const useNewSan = () => {
     const [loading, setLoading] = useState(true);
     const [orderBy, setOrderBy] = useState('desc');
     const [column, setColumn] = useState('id');
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
+    const [orderId, setOrderId] = useState('');
+    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
-    const fetchPage = async (currentPage, startDate = '', endDate = '', orderId = '') => {
+    const fetchPage = async (currentPage, perPage = 10, startDate = '', endDate = '', orderId = '') => {
         setErrors([]);
         try {
-            const perPage = 20;
             const response = await axios(`/api/v1/newsan/notification-logs?current_page=${currentPage}&per_page=${perPage}&order_by=${orderBy}&column=${column}&start_date=${startDate}&end_date=${endDate}&order_id=${orderId}`);
             const { data } = response;
             setNotificaciones(data.result.data);
@@ -85,12 +88,33 @@ const useNewSan = () => {
     };
 
     useEffect(() => {
-        fetchPage(paginationData.currentPage);
-    }, [column, orderBy]);
+        if (startDate && endDate) {
+            const start = new Date(startDate);
+            const end = new Date(endDate);
+            setIsButtonDisabled(end < start);
+        } else {
+            setIsButtonDisabled(false);
+        }
+    }, [startDate, endDate, orderId]);
+
+    const handleFilter = (e) => {
+        e.preventDefault();
+        if (startDate && endDate) {
+            const start = new Date(startDate);
+            const end = new Date(endDate);
+            if (end < start) return;
+        }
+        fetchPage(paginationData.currentPage, paginationData.perPage, startDate, endDate, orderId);
+    }
+
+    useEffect(() => {
+        fetchPage(paginationData.currentPage, paginationData.perPage, startDate, endDate, orderId);
+    }, [column, orderBy, paginationData.currentPage, paginationData.perPage]);
 
     return {
         notificaciones,
         paginationData,
+        setPaginationData,
         errors,
         loading,
         fetchPage,
@@ -98,6 +122,14 @@ const useNewSan = () => {
         changeSorting,
         orderBy,
         column,
+        startDate,
+        setStartDate,
+        endDate,
+        setEndDate,
+        orderId,
+        setOrderId,
+        isButtonDisabled,
+        handleFilter,
     };
 };
 

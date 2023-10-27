@@ -7,7 +7,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
     const router = useRouter()
 
     //  obtengo la información del usuario autenticado desde la ruta /api/user de la API
-    const { data: userData, error, mutate } = useSWR('/api/user', () =>
+    const { data: userData, error, mutate, isValidating } = useSWR('/api/user', () =>
         axios
             .get('/api/user')
             .then(res => res.data)
@@ -21,7 +21,29 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
     const user = userData?.user; // Extrae el usuario de userData
     const permissions = userData?.permissions || []; // Extrae los permisos de userData, por defecto será un array vacío si no hay permisos
 
-    const csrf = () => axios.get('/sanctum/csrf-cookie')
+    // Obtengo los usuario con su rol
+    const getUsersWithRole = async () => {
+        try {
+            const res = await axios.get('/api/users-with-roles')
+            return res.data
+        } catch (error) {
+            console.error(error)
+            throw error;
+        }
+    }
+
+    // const updateUserPermissions = async (userId, permissions) => {
+    //     try {
+    //         await csrf();  // Obtener el token CSRF antes de hacer la petición
+    //         const response = await axios.post(`/api/users/${userId}/sync-permissions`, permissions);
+    //         return response.data; // Puedes retornar los datos de respuesta si lo necesitas
+    //     } catch (error) {
+    //         console.error('Error al actualizar los permisos del usuario', error);
+    //         throw error; // Lanza el error para que pueda ser manejado en el componente que utiliza este hook
+    //     }
+    // }
+
+    const csrf = () => axios.get('/sanctum/csrf-cookie');
 
     const register = async ({ setErrors, ...props }) => {
         await csrf()
@@ -115,6 +137,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
 
     return {
         user,
+        isLoading: isValidating,
         permissions,
         register,
         login,
@@ -122,5 +145,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
         resetPassword,
         resendEmailVerification,
         logout,
+        getUsersWithRole,
+        // updateUserPermissions,
     }
 }

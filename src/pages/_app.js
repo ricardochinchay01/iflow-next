@@ -1,4 +1,5 @@
 import 'tailwindcss/tailwind.css'
+import 'react-toastify/dist/ReactToastify.css'
 import { PermissionsProvider } from '@/context/PermissionsContext'
 import { useEffect, useState } from 'react'
 import { useAuth } from '@/hooks/auth';
@@ -11,8 +12,6 @@ const App = ({ Component, pageProps }) => {
     const { permissions: authPermissions } = useAuth();
 
     useEffect(() => {
-        // console.log('authPermissions', authPermissions);
-
         // Verifica si authPermissions existe y es diferente de permissions antes de actualizar el estado.
         if (authPermissions && JSON.stringify(authPermissions) !== JSON.stringify(permissions)) {
             setPermissions(authPermissions);
