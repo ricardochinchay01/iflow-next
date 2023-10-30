@@ -109,7 +109,7 @@ const AddRoleModal = ({ isOpen, onClose, isAdmin, addRoleWithPermissions }) => {
         // Lógica para guardar el rol y los permisos
         try {
             // Lógica para guardar el rol y los permisos
-            const response = await addRoleWithPermissions(
+            await addRoleWithPermissions(
                 roleName,
                 activePermissions,
             )

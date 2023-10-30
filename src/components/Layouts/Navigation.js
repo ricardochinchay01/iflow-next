@@ -39,7 +39,9 @@ const Navigation = ({ user, permissions }) => {
                             </NavLink>
                         </div>
                         <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            {permissions.includes('NewSan.ver_notificaciones') && (
+                            {permissions.includes(
+                                'NewSan.ver_notificaciones',
+                            ) && (
                                 <NavLink
                                     href="/newsan"
                                     active={router.pathname === '/newsan'}>
@@ -72,12 +74,16 @@ const Navigation = ({ user, permissions }) => {
                                     </div>
                                 </button>
                             }>
-
-                            {permissions.includes('General.administrar_usuarios_y_permisos') && (
+                            {permissions.includes(
+                                'General.administrar_usuarios_y_permisos',
+                            ) && (
                                 <>
                                     <div className="border-t my-2 border-gray-200"></div>
 
-                                    <DropdownButton onClick={() => router.push('gestionar')}>
+                                    <DropdownButton
+                                        onClick={() =>
+                                            router.push('gestionar')
+                                        }>
                                         Administrar Usuarios y Permisos
                                     </DropdownButton>
                                 </>

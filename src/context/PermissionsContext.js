@@ -1,15 +1,21 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext } from 'react'
 
-const PermissionsContext = createContext();
+const PermissionsContext = createContext()
 
 export const usePermissions = () => {
-    const context = useContext(PermissionsContext);
+    const context = useContext(PermissionsContext)
     if (!context) {
-        throw new Error('usePermissions must be used within a PermissionsProvider');
+        throw new Error(
+            'usePermissions must be used within a PermissionsProvider',
+        )
     }
-    return context;
-};
+    return context
+}
 
 export const PermissionsProvider = ({ children, value }) => {
-    return <PermissionsContext.Provider value={value}>{children}</PermissionsContext.Provider>;
-};
+    return (
+        <PermissionsContext.Provider value={value}>
+            {children}
+        </PermissionsContext.Provider>
+    )
+}

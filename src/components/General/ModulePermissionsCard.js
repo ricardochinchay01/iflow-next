@@ -7,16 +7,16 @@ const ModulePermissionsCard = ({
 }) => {
     return (
         <>
-            <div key={moduleName} class="w-full md:w-1/2 lg:w-1/3 px-4">
-                <div class="bg-white rounded-xl relative z-10 overflow-hidden border border-primary border-opacity-20 shadow-pricing py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12 mb-10 h-[400px] md:grid-cols-2 gap-4">
-                    <h2 class="font-bold text-dark mb-5 text-[42px]">
+            <div key={moduleName} className="w-full md:w-1/2 lg:w-1/3 px-4">
+                <div className="bg-white rounded-xl relative z-10 overflow-hidden border border-primary border-opacity-20 shadow-pricing py-10 px-8 sm:p-12 lg:py-10 lg:px-6 xl:p-12 mb-10 h-[400px] md:grid-cols-2 gap-4">
+                    <h2 className="font-bold text-dark mb-5 text-[42px]">
                         {moduleName}
                     </h2>
                     {permissions.map(permission => (
-                        <div key={permission.id} class="mb-2">
+                        <div key={permission.id} className="mb-2">
                             <label
                                 key={permission.id}
-                                class="mb-2 flex items-center space-x-2 cursor-pointer">
+                                className="mb-2 flex items-center space-x-2 cursor-pointer">
                                 <input
                                     type="checkbox"
                                     checked={permission.assigned} // Debes determinar si el permiso ya está asignado o no
@@ -35,7 +35,7 @@ const ModulePermissionsCard = ({
                     ))}
                     <button
                         type="button"
-                        class="mx-auto text-base font-semibold text-primary bg-transparent border border-[#D4DEFF] rounded-md text-center p-4 hover:text-white hover:bg-primary hover:border-primary transition absolute bottom-5 w-[292.5px] left-1/2 transform -translate-x-1/2"
+                        className="mx-auto text-base font-semibold text-primary bg-transparent border border-[#D4DEFF] rounded-md text-center p-4 hover:text-white hover:bg-primary hover:border-primary transition absolute bottom-5 w-[292.5px] left-1/2 transform -translate-x-1/2"
                         onClick={() => {
                             setShowModalPermission(true)
                             setModuleSelected(moduleName)
@@ -45,7 +45,7 @@ const ModulePermissionsCard = ({
 
                     {/* adorno */}
                     <div>
-                        <span class="absolute right-0 top-7 z-[-1]">
+                        <span className="absolute right-0 top-7 z-[-1]">
                             <svg
                                 width="77"
                                 height="172"
@@ -67,19 +67,19 @@ const ModulePermissionsCard = ({
                                         y2="172"
                                         gradientUnits="userSpaceOnUse">
                                         <stop
-                                            stop-color="#3056D3"
-                                            stop-opacity="0.09"
+                                            stopColor="#3056D3"
+                                            stopOpacity="0.09"
                                         />
                                         <stop
                                             offset="1"
-                                            stop-color="#C4C4C4"
-                                            stop-opacity="0"
+                                            stopColor="#C4C4C4"
+                                            stopOpacity="0"
                                         />
                                     </linearGradient>
                                 </defs>
                             </svg>
                         </span>
-                        <span class="absolute right-4 top-4 z-[-1]">
+                        <span className="absolute right-4 top-4 z-[-1]">
                             <svg
                                 width="41"
                                 height="89"

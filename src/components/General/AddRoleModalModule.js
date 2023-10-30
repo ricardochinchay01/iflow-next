@@ -31,7 +31,7 @@ const AddRoleModalModule = ({
             })
             fetchData()
         } catch (error) {
-            console.error('Error al eliminar el permiso', error)
+            // console.error('Error al eliminar el permiso', error)
             toast.error(
                 'Error al eliminar el permiso. Por favor, intenta de nuevo.',
                 {

@@ -7,7 +7,6 @@ import FilterRolesAndPermission from './FilterRolesAndPermission'
 const RolesAndPermissionsContainer = ({
     roles,
     loading: loadingRoles,
-    error: errorRoles,
     rolesWithPermissions,
     filterData,
     setFilterData,

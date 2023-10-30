@@ -1,8 +1,8 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-import FiltersUserAndRoles from "./FiltersUserAndRoles";
-import UsersAndRolesTable from "./UsersAndRolesTable";
-import PaginationTable from "../NewSan/PaginationTable";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+import FiltersUserAndRoles from './FiltersUserAndRoles'
+import UsersAndRolesTable from './UsersAndRolesTable'
+import PaginationTable from '../NewSan/PaginationTable'
 
 const UsersAndRolesContainer = ({
     roles,
@@ -22,21 +22,22 @@ const UsersAndRolesContainer = ({
     setSelectedUser,
 }) => {
     const handleAddUser = () => {
-        setSelectedUser({});
-        setShowModal(true);
-    };
+        setSelectedUser({})
+        setShowModal(true)
+    }
 
-    const handleEditUser = (user) => {
-        setSelectedUser(user);
-        setShowModal(true);
-    };
+    const handleEditUser = user => {
+        setSelectedUser(user)
+        setShowModal(true)
+    }
 
-    if (loadingRoles) return (
-        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50">
-            <FontAwesomeIcon icon={faSpinner} spin size="3x" />
-        </div>
-    );
-    if (errorRoles) return <p>Error al cargar los roles: {errorRoles}</p>;
+    if (loadingRoles)
+        return (
+            <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50">
+                <FontAwesomeIcon icon={faSpinner} spin size="3x" />
+            </div>
+        )
+    if (errorRoles) return <p>Error al cargar los roles: {errorRoles}</p>
 
     return (
         <>
@@ -63,7 +64,7 @@ const UsersAndRolesContainer = ({
                 setPaginationData={setPaginationData}
             />
         </>
-    );
-};
+    )
+}
 
-export default UsersAndRolesContainer;
+export default UsersAndRolesContainer

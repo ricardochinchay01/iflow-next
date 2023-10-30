@@ -1,14 +1,16 @@
-import React from 'react';
-import Filters from './Filters';
-import NotificationsTable from './NotificationsTable';
-import PaginationTable from './PaginationTable';
-import useNewSan from '@/hooks/NewSan/useNewSan';
+import React from 'react'
+import Filters from './Filters'
+import NotificationsTable from './NotificationsTable'
+import PaginationTable from './PaginationTable'
+import useNewSan from '@/hooks/NewSan/useNewSan'
 
-const Notifications = ({ canViewNotificaciones, canDescargarNotificaciones }) => {
+const Notifications = ({
+    canViewNotificaciones,
+    canDescargarNotificaciones,
+}) => {
     const {
         notificaciones,
         paginationData,
-        errors,
         handleDownload,
         changeSorting,
         orderBy,
@@ -22,9 +24,7 @@ const Notifications = ({ canViewNotificaciones, canDescargarNotificaciones }) =>
         isButtonDisabled,
         handleFilter,
         setPaginationData,
-        perPage,
-        setPerPage,
-    } = useNewSan();
+    } = useNewSan()
 
     return (
         <div className="py-6 px-8 bg-gray-100">
@@ -58,7 +58,7 @@ const Notifications = ({ canViewNotificaciones, canDescargarNotificaciones }) =>
                 />
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default Notifications;
+export default Notifications
