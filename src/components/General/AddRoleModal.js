@@ -109,10 +109,7 @@ const AddRoleModal = ({ isOpen, onClose, isAdmin, addRoleWithPermissions }) => {
         // Lógica para guardar el rol y los permisos
         try {
             // Lógica para guardar el rol y los permisos
-            await addRoleWithPermissions(
-                roleName,
-                activePermissions,
-            )
+            await addRoleWithPermissions(roleName, activePermissions)
 
             toast.success('Rol creado con éxito!', {
                 position: toast.POSITION.BOTTOM_RIGHT,

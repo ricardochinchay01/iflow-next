@@ -7,19 +7,21 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
     const router = useRouter()
 
     //  obtengo la información del usuario autenticado desde la ruta /api/user de la API
-    const { data: userData, error, mutate, isValidating } = useSWR('/api/user', () =>
-        axios
-            .get('/api/user')
-            .then(res => res.data)
-            .catch(error => {
-                if (error.response.status !== 409) throw error
+    const { data: userData, error, mutate, isValidating } = useSWR(
+        '/api/user',
+        () =>
+            axios
+                .get('/api/user')
+                .then(res => res.data)
+                .catch(error => {
+                    if (error.response.status !== 409) throw error
 
-                router.push('/verify-email')
-            }),
+                    router.push('/verify-email')
+                }),
     )
 
-    const user = userData?.user; // Extrae el usuario de userData
-    const permissions = userData?.permissions || []; // Extrae los permisos de userData, por defecto será un array vacío si no hay permisos
+    const user = userData?.user // Extrae el usuario de userData
+    const permissions = userData?.permissions || [] // Extrae los permisos de userData, por defecto será un array vacío si no hay permisos
 
     // Obtengo los usuario con su rol
     const getUsersWithRole = async () => {
@@ -28,7 +30,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
             return res.data
         } catch (error) {
             console.error(error)
-            throw error;
+            throw error
         }
     }
 
@@ -43,7 +45,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
     //     }
     // }
 
-    const csrf = () => axios.get('/sanctum/csrf-cookie');
+    const csrf = () => axios.get('/sanctum/csrf-cookie')
 
     const register = async ({ setErrors, ...props }) => {
         await csrf()

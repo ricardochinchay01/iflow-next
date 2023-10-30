@@ -22,7 +22,7 @@ const useRoles = () => {
         username: '',
     })
 
-    const csrf = () => axios.get('/sanctum/csrf-cookie')
+    // const csrf = () => axios.get('/sanctum/csrf-cookie')
 
     const fetchRoles = async () => {
         try {

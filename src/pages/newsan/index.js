@@ -4,10 +4,14 @@ import { usePermissions } from '@/context/PermissionsContext'
 import Notifications from '@/components/NewSan/Notifications'
 
 const Index = () => {
-    const permissions = usePermissions();
+    const permissions = usePermissions()
 
-    const canViewNotificaciones = permissions.includes('NewSan.ver_notificaciones')
-    const canDescargarNotificaciones = permissions.includes('NewSan.descargar_notificaciones')
+    const canViewNotificaciones = permissions.includes(
+        'NewSan.ver_notificaciones',
+    )
+    const canDescargarNotificaciones = permissions.includes(
+        'NewSan.descargar_notificaciones',
+    )
 
     return (
         <AppLayout
@@ -15,8 +19,7 @@ const Index = () => {
                 <h2 className="font-semibold text-xl text-gray-800 leading-tight">
                     New San | Notificaciones
                 </h2>
-            }
-        >
+            }>
             <Head>
                 <title>Iflow - New San</title>
             </Head>
@@ -26,7 +29,7 @@ const Index = () => {
                 canDescargarNotificaciones={canDescargarNotificaciones}
             />
         </AppLayout>
-    );
-};
+    )
+}
 
-export default Index;
+export default Index

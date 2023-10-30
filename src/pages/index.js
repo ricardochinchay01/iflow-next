@@ -1,10 +1,9 @@
-import Head from 'next/head'
-import ApplicationLogo from '@/components/ApplicationLogo';
-import AuthSessionStatus from '@/components/AuthSessionStatus';
-import Label from '@/components/Label';
-import Input from '@/components/Input';
-import Button from '@/components/Button';
-import InputError from '@/components/InputError';
+import ApplicationLogo from '@/components/ApplicationLogo'
+import AuthSessionStatus from '@/components/AuthSessionStatus'
+import Label from '@/components/Label'
+import Input from '@/components/Input'
+import Button from '@/components/Button'
+import InputError from '@/components/InputError'
 import { useAuth } from '@/hooks/auth'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'

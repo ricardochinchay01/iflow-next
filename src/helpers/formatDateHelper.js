@@ -11,7 +11,7 @@ export const formatDate = dateString => {
         const date = new Date(dateString)
         return date.toLocaleDateString(undefined, options)
     } catch (error) {
-        console.error('Error al formatear la fecha: ', error)
+        // console.error('Error al formatear la fecha: ', error)
         return dateString // Si hay un error, retorna la fecha original.
     }
 }
