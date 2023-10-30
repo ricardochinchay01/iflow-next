@@ -1,10 +1,21 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
 
-const ValidatedInput = ({ id, placeholder, value, onChange, error, type = 'text' }) => {
+const ValidatedInput = ({
+    id,
+    placeholder,
+    value,
+    onChange,
+    error,
+    type = 'text',
+}) => {
     return (
         <div className="relative mb-4">
-            <label htmlFor={id} className="block text-sm font-medium text-gray-700 mb-1">{placeholder}</label>
+            <label
+                htmlFor={id}
+                className="block text-sm font-medium text-gray-700 mb-1">
+                {placeholder}
+            </label>
             <div className="relative">
                 <input
                     type={type}
@@ -12,7 +23,9 @@ const ValidatedInput = ({ id, placeholder, value, onChange, error, type = 'text'
                     value={value}
                     id={id}
                     onChange={onChange}
-                    className={`border p-2 w-full ${error ? 'border-red-500' : ''} rounded`}
+                    className={`border p-2 w-full ${
+                        error ? 'border-red-500' : ''
+                    } rounded`}
                 />
                 {error && (
                     <>
@@ -25,7 +38,7 @@ const ValidatedInput = ({ id, placeholder, value, onChange, error, type = 'text'
                 )}
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default ValidatedInput;
+export default ValidatedInput

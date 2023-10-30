@@ -1,7 +1,13 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserAlt } from '@fortawesome/free-solid-svg-icons'
 
-const CustomInput = ({ value, onChange, label, icon = faUserAlt, type = "text" }) => {
+const CustomInput = ({
+    value,
+    onChange,
+    label,
+    icon = faUserAlt,
+    type = 'text',
+}) => {
     return (
         <div className="flex items-center space-x-2">
             <FontAwesomeIcon icon={icon} className="text-blue-900" />
@@ -15,7 +21,7 @@ const CustomInput = ({ value, onChange, label, icon = faUserAlt, type = "text" }
                 />
             </label>
         </div>
-    );
-};
+    )
+}
 
-export default CustomInput;
+export default CustomInput

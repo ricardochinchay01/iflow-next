@@ -1,8 +1,8 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-import RolesAndPermissionsTable from "./RolesAndPermissionsTable";
-import PaginationTable from "../NewSan/PaginationTable";
-import FilterRolesAndPermission from "./FilterRolesAndPermission";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+import RolesAndPermissionsTable from './RolesAndPermissionsTable'
+import PaginationTable from '../NewSan/PaginationTable'
+import FilterRolesAndPermission from './FilterRolesAndPermission'
 
 const RolesAndPermissionsContainer = ({
     roles,
@@ -19,15 +19,15 @@ const RolesAndPermissionsContainer = ({
     setShowModal,
 }) => {
     const handleAddRole = () => {
-        setShowModal(true);
-    };
+        setShowModal(true)
+    }
 
     if (loadingRoles) {
         return (
             <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50">
                 <FontAwesomeIcon icon={faSpinner} spin size="3x" />
             </div>
-        );
+        )
     }
 
     return (
@@ -52,7 +52,7 @@ const RolesAndPermissionsContainer = ({
                 setPaginationData={setPaginationData}
             />
         </>
-    );
-};
+    )
+}
 
-export default RolesAndPermissionsContainer;
+export default RolesAndPermissionsContainer
