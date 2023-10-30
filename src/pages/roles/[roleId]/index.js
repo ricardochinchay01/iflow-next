@@ -54,20 +54,20 @@ const EditRole = () => {
                     Permisos agrupados por módulo
                 </h2>
             }>
-            <div class="flex flex-wrap -mx-4 mt-4">
-                <div class="w-full px-4">
-                    <div class="text-center mx-auto mb-[60px] lg:mb-8 max-w-[510px]">
-                        <h2 class="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark mb-4">
+            <div className="flex flex-wrap -mx-4 mt-4">
+                <div className="w-full px-4">
+                    <div className="text-center mx-auto mb-[60px] lg:mb-8 max-w-[510px]">
+                        <h2 className="font-bold text-3xl sm:text-4xl md:text-[40px] text-dark mb-4">
                             Rol : {role.name}
                         </h2>
-                        <p class="text-base text-body-color">
+                        <p className="text-base text-body-color">
                             Para dar o revocar permisos para el rol simplemente
                             haga click sobre el nombre del permiso.
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="flex flex-wrap justify-center -mx-4 mb-1">
+            <div className="flex flex-wrap justify-center -mx-4 mb-1">
                 {Object.entries(role.organizedPermissions).map(
                     ([moduleName, permissions]) => (
                         <ModulePermissionsCard
@@ -81,7 +81,7 @@ const EditRole = () => {
                 )}
             </div>
 
-            <div class="fixed bottom-4 left-4">
+            <div className="fixed bottom-4 left-4">
                 {' '}
                 {/* Posicionamiento en la esquina inferior izquierda */}
                 <button

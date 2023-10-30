@@ -45,10 +45,10 @@ const useNewSan = () => {
                 router.push('/login')
                 setErrors(error.response.data.errors)
             } else {
-                console.error(
-                    'Hubo un error al cargar las notificaciones:',
-                    error,
-                )
+                // console.error(
+                //     'Hubo un error al cargar las notificaciones:',
+                //     error,
+                // )
             }
         } finally {
             setLoading(false)
@@ -97,7 +97,7 @@ const useNewSan = () => {
             a.click()
             a.remove()
         } catch (error) {
-            console.error('Error durante la descarga: ', error)
+            // console.error('Error durante la descarga: ', error)
         }
     }
 

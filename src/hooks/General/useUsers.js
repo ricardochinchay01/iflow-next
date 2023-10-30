@@ -80,7 +80,7 @@ const useUsers = () => {
             setUsers(prevUsers => [addedUser, ...prevUsers])
             return response.data
         } catch (error) {
-            console.log(error)
+            // console.log(error)
             throw error
         } finally {
             setLoading(false)
@@ -101,7 +101,7 @@ const useUsers = () => {
             )
             return response.data
         } catch (error) {
-            console.log(error)
+            // console.log(error)
             throw error
         } finally {
             setLoading(false)
@@ -130,7 +130,7 @@ const useUsers = () => {
             })
             return response.data
         } catch (error) {
-            console.log(error.response.data.error)
+            // console.log(error.response.data.error)
             toast.error(error.response.data.message, {
                 position: toast.POSITION.BOTTOM_RIGHT,
             })

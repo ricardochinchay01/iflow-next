@@ -18,7 +18,8 @@ const AccessDenied = () => {
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
                                     strokeWidth={2}
-                                    d="M12 9v2m0 4h.01m-6.938 2a8.002 8.002 0 0013.856-.018M4 7h16M4 7L5.245 5.38a2 2 0 011.962-.38h10.586a2 2 0 011.962.38L20 7M4 7l1.649-3.905A2 2 0 017.176 2h9.648a2 2 0 011.527.905L20 7"></path>
+                                    d="M12 9v2m0 4h.01m-6.938 2a8.002 8.002 0 0013.856-.018M4 7h16M4 7L5.245 5.38a2 2 0 011.962-.38h10.586a2 2 0 011.962.38L20 7M4 7l1.649-3.905A2 2 0 017.176 2h9.648a2 2 0 011.527.905L20 7"
+                                />
                             </svg>
                             <h3 className="font-bold text-2xl mb-4">
                                 ¡Oops! No tienes permisos para acceder a esta

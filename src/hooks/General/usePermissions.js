@@ -16,7 +16,7 @@ const usePermissions = () => {
             setPermissions(response.data)
             return response.data
         } catch (error) {
-            console.error('Error al obtener todos los permisos', error)
+            // console.error('Error al obtener todos los permisos', error)
             setError('Error al obtener todos los permisos')
         } finally {
             setLoading(false)
@@ -30,7 +30,7 @@ const usePermissions = () => {
             const response = await axios.post(`/api/permissions`, permission)
             return response.data
         } catch (error) {
-            console.error('Error al crear el permiso', error)
+            // console.error('Error al crear el permiso', error)
             setError('Error al crear el permiso')
             // throw error; // Lanza el error para que pueda ser manejado en el componente que utiliza este hook
         } finally {
@@ -47,7 +47,7 @@ const usePermissions = () => {
             )
             return response.data
         } catch (error) {
-            console.error('Error al eliminar el permiso', error)
+            // console.error('Error al eliminar el permiso', error)
             setError('Error al eliminar el permiso')
         } finally {
             setLoading(false)

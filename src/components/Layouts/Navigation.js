@@ -78,7 +78,7 @@ const Navigation = ({ user, permissions }) => {
                                 'General.administrar_usuarios_y_permisos',
                             ) && (
                                 <>
-                                    <div className="border-t my-2 border-gray-200"></div>
+                                    <div className="border-t my-2 border-gray-200" />
 
                                     <DropdownButton
                                         onClick={() =>
@@ -89,13 +89,13 @@ const Navigation = ({ user, permissions }) => {
                                 </>
                             )}
 
-                            <div className="border-t my-2 border-gray-200"></div>
+                            <div className="border-t my-2 border-gray-200" />
 
                             {/* <DropdownButton onClick={() => { }}>
                                 Cambiar contraseña
                             </DropdownButton> */}
 
-                            <div className="border-t my-2 border-gray-200"></div>
+                            <div className="border-t my-2 border-gray-200" />
 
                             {/* Authentication */}
                             <DropdownButton onClick={logout}>

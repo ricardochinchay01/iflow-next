@@ -94,7 +94,7 @@ const useRoles = () => {
             const response = await axios.get(`/api/roles/${roleId}`)
             return response.data // Puedes retornar los datos de respuesta si lo necesitas
         } catch (error) {
-            console.error('Error al obtener el rol por su id', error)
+            // console.error('Error al obtener el rol por su id', error)
             throw error
         }
     }
@@ -160,7 +160,7 @@ const useRoles = () => {
             )
             return response.data // Puedes retornar los datos de respuesta si lo necesitas
         } catch (error) {
-            console.error('Error al actualizar el rol', error)
+            // console.error('Error al actualizar el rol', error)
             throw error // Lanza el error para que pueda ser manejado en el componente que utiliza este hook
         }
     }

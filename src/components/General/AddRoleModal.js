@@ -166,7 +166,7 @@ const AddRoleModal = ({ isOpen, onClose, isAdmin, addRoleWithPermissions }) => {
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
             <div
                 className="absolute top-0 left-0 w-full h-full bg-black opacity-50"
-                onClick={onClose}></div>
+                onClick={onClose} />
             <div className="bg-white w-3/4 max-w-xl rounded p-4 z-10">
                 <button onClick={onClose} className="float-right">
                     &times;
