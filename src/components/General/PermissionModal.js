@@ -30,7 +30,7 @@ const PermissionModal = ({
                 'El modulo al que se le quiere asignar el permiso es obligatorio.'
         } else if (
             formData.name.includes(' ') ||
-            formData.name.match(/[.\/-]/)
+            formData.name.match(/[./-]/)
         ) {
             errors.name =
                 'El nombre no debe contener espacios vacíos, puntos, guiones medios o barras'
@@ -78,7 +78,8 @@ const PermissionModal = ({
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
             <div
                 className="absolute top-0 left-0 w-full h-full bg-black opacity-50"
-                onClick={onClose} />
+                onClick={onClose}
+            />
             <div className="bg-white w-3/4 max-w-xl rounded p-4 z-10">
                 <button onClick={onClose} className="float-right">
                     &times;
