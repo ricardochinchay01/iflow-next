@@ -131,10 +131,7 @@ const useRoles = () => {
             permissions,
         })
         // Actualizar roles en el estado
-        setRolesWithPermissions(prevRoles => [
-            response.data.role,
-            ...prevRoles,
-        ]) // Asumiendo que el nuevo rol se devuelve en la respuesta como response.data.role
+        setRolesWithPermissions(prevRoles => [ response.data.role, ...prevRoles ]) // Asumiendo que el nuevo rol se devuelve en la respuesta como response.data.role
         setLoading(false)
         return response.data
     }

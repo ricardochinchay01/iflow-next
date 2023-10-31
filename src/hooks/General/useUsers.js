@@ -83,10 +83,7 @@ const useUsers = () => {
 
     const updateUserWithRole = async (userId, updatedUser) => {
         setLoading(true)
-        const response = await axios.put(
-            `/api/users/${userId}`,
-            updatedUser,
-        )
+        const response = await axios.put(`/api/users/${userId}`, updatedUser)
         setUsers(prevUsers =>
             prevUsers.map(user =>
                 user.id === userId ? response.data.user : user,

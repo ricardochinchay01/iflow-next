@@ -29,7 +29,7 @@ const AccessDenied = () => {
                             <p className="text-gray-700 mb-6">
                                 Si crees que es un error, comunícate con el
                                 administrador o intenta regresar al{' '}
-                                <Link href="/dashboard"> {/* Usa Link aquí */}
+                                <Link href="/dashboard">
                                     <a className="text-blue-600 hover:underline">
                                         inicio
                                     </a>

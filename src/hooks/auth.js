@@ -25,13 +25,8 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
 
     // Obtengo los usuario con su rol
     const getUsersWithRole = async () => {
-        try {
-            const res = await axios.get('/api/users-with-roles')
-            return res.data
-        } catch (error) {
-            // console.error(error)
-            throw error
-        }
+        const res = await axios.get('/api/users-with-roles')
+        return res.data
     }
 
     // const updateUserPermissions = async (userId, permissions) => {
