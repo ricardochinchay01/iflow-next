@@ -73,7 +73,7 @@ const PaginationTable = ({ paginationData, setPaginationData }) => {
                                     ? 'bg-blue-900 text-white'
                                     : 'bg-white text-blue-900 border border-blue-900 hover:bg-blue-200'
                             }`}>
-                            {page}
+                            {isNaN(page) ? 'Error' : page}
                         </button>
                     ))}
 

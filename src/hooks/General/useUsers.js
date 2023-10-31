@@ -73,39 +73,27 @@ const useUsers = () => {
     }
 
     const addUserWithRole = async newUser => {
-        try {
-            setLoading(true)
-            const response = await axios.post(`/api/users`, newUser)
-            const addedUser = { ...response.data.user, deleted_at: null }
-            setUsers(prevUsers => [addedUser, ...prevUsers])
-            return response.data
-        } catch (error) {
-            // console.log(error)
-            throw error
-        } finally {
-            setLoading(false)
-        }
+        setLoading(true)
+        const response = await axios.post(`/api/users`, newUser)
+        const addedUser = { ...response.data.user, deleted_at: null }
+        setUsers(prevUsers => [addedUser, ...prevUsers])
+        setLoading(false)
+        return response.data
     }
 
     const updateUserWithRole = async (userId, updatedUser) => {
-        try {
-            setLoading(true)
-            const response = await axios.put(
-                `/api/users/${userId}`,
-                updatedUser,
-            )
-            setUsers(prevUsers =>
-                prevUsers.map(user =>
-                    user.id === userId ? response.data.user : user,
-                ),
-            )
-            return response.data
-        } catch (error) {
-            // console.log(error)
-            throw error
-        } finally {
-            setLoading(false)
-        }
+        setLoading(true)
+        const response = await axios.put(
+            `/api/users/${userId}`,
+            updatedUser,
+        )
+        setUsers(prevUsers =>
+            prevUsers.map(user =>
+                user.id === userId ? response.data.user : user,
+            ),
+        )
+        setLoading(false)
+        return response.data
     }
 
     const toggleUserStatus = async userId => {

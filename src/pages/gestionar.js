@@ -82,7 +82,7 @@ const gestionar = () => {
                 setServerErrorsUser({})
                 closeModalUser()
             } catch (error) {
-                console.error('Hubo un error al agregar el usuario:', error)
+                // console.error('Hubo un error al agregar el usuario:', error)
                 const errors = error.response.data.errors
                 setServerErrorsUser(error.response.data.errors)
 
@@ -107,7 +107,7 @@ const gestionar = () => {
                 setServerErrorsUser({})
                 closeModalUser()
             } catch (error) {
-                console.error('Hubo un error al editar el usuario:', error)
+                // console.error('Hubo un error al editar el usuario:', error)
                 const errors = error.response.data.errors
                 setServerErrorsUser(error.response.data.errors)
 

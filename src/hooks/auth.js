@@ -29,7 +29,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
             const res = await axios.get('/api/users-with-roles')
             return res.data
         } catch (error) {
-            console.error(error)
+            // console.error(error)
             throw error
         }
     }

@@ -89,14 +89,8 @@ const useRoles = () => {
     }
 
     const getRole = async roleId => {
-        try {
-            // await csrf();  // Obtener el token CSRF antes de hacer la petición
-            const response = await axios.get(`/api/roles/${roleId}`)
-            return response.data // Puedes retornar los datos de respuesta si lo necesitas
-        } catch (error) {
-            // console.error('Error al obtener el rol por su id', error)
-            throw error
-        }
+        const response = await axios.get(`/api/roles/${roleId}`)
+        return response.data // Puedes retornar los datos de respuesta si lo necesitas
     }
 
     const deleteRole = async roleId => {
@@ -131,38 +125,26 @@ const useRoles = () => {
     }
 
     const addRoleWithPermissions = async (name, permissions = {}) => {
-        try {
-            // await csrf();
-            setLoading(true)
-            const response = await axios.post(`/api/roles`, {
-                name,
-                permissions,
-            })
-            // Actualizar roles en el estado
-            setRolesWithPermissions(prevRoles => [
-                response.data.role,
-                ...prevRoles,
-            ]) // Asumiendo que el nuevo rol se devuelve en la respuesta como response.data.role
-            return response.data
-        } catch (error) {
-            throw error // Lanza el error para que pueda ser manejado en el componente que utiliza este hook
-        } finally {
-            setLoading(false)
-        }
+        setLoading(true)
+        const response = await axios.post(`/api/roles`, {
+            name,
+            permissions,
+        })
+        // Actualizar roles en el estado
+        setRolesWithPermissions(prevRoles => [
+            response.data.role,
+            ...prevRoles,
+        ]) // Asumiendo que el nuevo rol se devuelve en la respuesta como response.data.role
+        setLoading(false)
+        return response.data
     }
 
     const updateRolePermissions = async (roleId, updatedRole) => {
-        try {
-            // await csrf();  // Obtener el token CSRF antes de hacer la petición
-            const response = await axios.put(
-                `/api/roles/${roleId}/permissions`,
-                updatedRole,
-            )
-            return response.data // Puedes retornar los datos de respuesta si lo necesitas
-        } catch (error) {
-            // console.error('Error al actualizar el rol', error)
-            throw error // Lanza el error para que pueda ser manejado en el componente que utiliza este hook
-        }
+        const response = await axios.put(
+            `/api/roles/${roleId}/permissions`,
+            updatedRole,
+        )
+        return response.data // Puedes retornar los datos de respuesta si lo necesitas
     }
 
     useEffect(() => {

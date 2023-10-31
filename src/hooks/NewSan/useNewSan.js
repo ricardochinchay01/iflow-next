@@ -7,7 +7,7 @@ const useNewSan = () => {
     const [notificaciones, setNotificaciones] = useState([])
     const [paginationData, setPaginationData] = useState({
         total: 0,
-        perPage: 0,
+        perPage: 10,
         currentPage: 1,
         lastPage: 0,
     })
@@ -21,7 +21,7 @@ const useNewSan = () => {
     const [isButtonDisabled, setIsButtonDisabled] = useState(true)
 
     const fetchPage = async (
-        currentPage,
+        currentPage = 1,
         perPage = 10,
         startDate = '',
         endDate = '',

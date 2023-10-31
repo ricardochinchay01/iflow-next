@@ -1,5 +1,6 @@
 import React from 'react'
 import AppLayout from '@/components/Layouts/AppLayout'
+import Link from 'next/link'
 
 const AccessDenied = () => {
     return (
@@ -28,11 +29,11 @@ const AccessDenied = () => {
                             <p className="text-gray-700 mb-6">
                                 Si crees que es un error, comunícate con el
                                 administrador o intenta regresar al{' '}
-                                <a
-                                    href="/dashboard"
-                                    className="text-blue-600 hover:underline">
-                                    inicio
-                                </a>
+                                <Link href="/dashboard"> {/* Usa Link aquí */}
+                                    <a className="text-blue-600 hover:underline">
+                                        inicio
+                                    </a>
+                                </Link>
                                 .
                             </p>
                         </div>

@@ -71,6 +71,7 @@ const EditRole = () => {
                 {Object.entries(role.organizedPermissions).map(
                     ([moduleName, permissions]) => (
                         <ModulePermissionsCard
+                            key={moduleName}
                             moduleName={moduleName}
                             permissions={permissions}
                             handlePermissionChange={handlePermissionChange}
@@ -95,7 +96,7 @@ const EditRole = () => {
                 isOpen={showModalPermission}
                 onClose={closeModaPermission}
                 onSubmit={() => {
-                    console.log('enviando...')
+                    // console.log('enviando...')
                 }}
                 initialData={{ module: moduleSelected, name: '' }}
                 data={{ roles }}
