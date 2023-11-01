@@ -12,27 +12,29 @@ const ModulePermissionsCard = ({
                     <h2 className="font-bold text-dark mb-5 text-[42px]">
                         {moduleName}
                     </h2>
-                    {permissions.map(permission => (
-                        <div key={permission.id} className="mb-2">
-                            <label
-                                key={permission.id}
-                                className="mb-2 flex items-center space-x-2 cursor-pointer">
-                                <input
-                                    type="checkbox"
-                                    checked={permission.assigned} // Debes determinar si el permiso ya está asignado o no
-                                    onChange={e =>
-                                        handlePermissionChange(
-                                            moduleName,
-                                            permission.id,
-                                            e.target.checked,
-                                            permission.name,
-                                        )
-                                    }
-                                />
-                                <span>{permission.name}</span>
-                            </label>
-                        </div>
-                    ))}
+                    <div className="permissions-container">
+                        {permissions.map(permission => (
+                            <div key={permission.id} className="mb-2">
+                                <label
+                                    key={permission.id}
+                                    className="mb-2 flex items-center space-x-2 cursor-pointer">
+                                    <input
+                                        type="checkbox"
+                                        checked={permission.assigned} // Debes determinar si el permiso ya está asignado o no
+                                        onChange={e =>
+                                            handlePermissionChange(
+                                                moduleName,
+                                                permission.id,
+                                                e.target.checked,
+                                                permission.name,
+                                            )
+                                        }
+                                    />
+                                    <span>{permission.name}</span>
+                                </label>
+                            </div>
+                        ))}
+                    </div>
                     <button
                         type="button"
                         className="mx-auto text-base font-semibold text-primary bg-transparent border border-[#D4DEFF] rounded-md text-center p-4 hover:text-white hover:bg-primary hover:border-primary transition absolute bottom-5 w-[292.5px] left-1/2 transform -translate-x-1/2"

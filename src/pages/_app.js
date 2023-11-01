@@ -1,3 +1,4 @@
+import '../../styles.css'
 import 'tailwindcss/tailwind.css'
 import 'react-toastify/dist/ReactToastify.css'
 import { PermissionsProvider } from '@/context/PermissionsContext'

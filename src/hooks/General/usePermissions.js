@@ -24,18 +24,11 @@ const usePermissions = () => {
     }
 
     const addPermission = async permission => {
-        try {
-            await csrf()
-            setLoading(true)
-            const response = await axios.post(`/api/permissions`, permission)
-            return response.data
-        } catch (error) {
-            // console.error('Error al crear el permiso', error)
-            setError('Error al crear el permiso')
-            // throw error; // Lanza el error para que pueda ser manejado en el componente que utiliza este hook
-        } finally {
-            setLoading(false)
-        }
+        await csrf()
+        setLoading(true)
+        const response = await axios.post(`/api/permissions`, permission)
+        setLoading(false)
+        return response.data
     }
 
     const deletePermission = async permissionId => {
@@ -47,7 +40,6 @@ const usePermissions = () => {
             )
             return response.data
         } catch (error) {
-            // console.error('Error al eliminar el permiso', error)
             setError('Error al eliminar el permiso')
         } finally {
             setLoading(false)

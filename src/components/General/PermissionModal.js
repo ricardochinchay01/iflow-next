@@ -9,7 +9,7 @@ const PermissionModal = ({
     onSubmit,
     initialData = {},
     data,
-    // serverErrors,
+    serverErrors,
 }) => {
     const { roles } = data
 
@@ -67,8 +67,27 @@ const PermissionModal = ({
             module: initialData.module || '',
         })
         setFormErrors({})
-        // console.log(initialData)
     }, [isOpen, initialData])
+
+    useEffect(() => {
+        const closeOnEscape = e => {
+            if (isOpen && e.key === 'Escape') {
+                onClose()
+            }
+        }
+        window.addEventListener('keydown', closeOnEscape)
+
+        return () => {
+            window.removeEventListener('keydown', closeOnEscape)
+        }
+    }, [isOpen, onClose])
+
+    useEffect(() => {
+        // Si hay errores del servidor, se setean aqui en los inputs
+        if (serverErrors) {
+            setFormErrors(prevErrors => ({ ...prevErrors, ...serverErrors }))
+        }
+    }, [serverErrors])
 
     if (!isOpen) {
         return null
@@ -85,7 +104,7 @@ const PermissionModal = ({
                     &times;
                 </button>
                 <h2 className="text-xl mb-4">
-                    {Object.keys(initialData).length === 0
+                    {Object.keys(initialData.name).length === 0
                         ? 'Nuevo permiso'
                         : 'Editar permiso'}
                 </h2>
@@ -129,7 +148,7 @@ const PermissionModal = ({
                         <button
                             type="submit"
                             className="bg-blue-900 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-800">
-                            {Object.keys(initialData).length === 0
+                            {Object.keys(initialData.name).length === 0
                                 ? 'Guardar Permiso'
                                 : 'Actualizar Permiso'}
                         </button>

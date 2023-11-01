@@ -1,0 +1,4 @@
+.permissions-container {
+    max-height: 180px;
+    overflow-y: auto;
+}
