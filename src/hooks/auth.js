@@ -29,17 +29,6 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
         return res.data
     }
 
-    // const updateUserPermissions = async (userId, permissions) => {
-    //     try {
-    //         await csrf();  // Obtener el token CSRF antes de hacer la petición
-    //         const response = await axios.post(`/api/users/${userId}/sync-permissions`, permissions);
-    //         return response.data; // Puedes retornar los datos de respuesta si lo necesitas
-    //     } catch (error) {
-    //         console.error('Error al actualizar los permisos del usuario', error);
-    //         throw error; // Lanza el error para que pueda ser manejado en el componente que utiliza este hook
-    //     }
-    // }
-
     const csrf = () => axios.get('/sanctum/csrf-cookie')
 
     const register = async ({ setErrors, ...props }) => {
@@ -143,6 +132,5 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
         resendEmailVerification,
         logout,
         getUsersWithRole,
-        // updateUserPermissions,
     }
 }
